@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+	<head>
+    	<title>Hermes Portal</title>
+    	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    	<link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
+    	<link href="css/promocode.css" rel="stylesheet" media="screen">
+
+   	<script src="js/jquery-1.10.2.min.js"></script>
+   	<script src="js/bootstrap.min.js"></script>
+		<script src="js/promocode.js"></script>
+	</head>
+	<body>
+   	<div class="container">
+      	<div class="header" style="margin-top:10px">
+      		<ul class="nav nav-pills pull-right">
+					<li><a href="#">Home</a></li>
+					<li><a href="#">Applications</a></li>
+					<li class="active"><a href="#">Promocodes</a></li>
+				</ul>
+      		<img src="img/movile.png" class="logo"/>
+      	</div>
+      	
+      	<div class="jumbotron">
+	        		<h1>Hermes Promocodes Portal</h1>
+			</div>
+
+				<div class="btn-group btn-group-lg" style="padding-left:30%; padding-bottom:30px">
+					<button type="button" class="btn btn-primary" onclick="prev()"><<</button>
+					<button type="button" class="btn btn-default" onclick="modal_generate()")>Generate</button>
+					<button type="button" class="btn btn-default" onclick="modal_reserve()")>Reserve</button>
+					<button type="button" class="btn btn-primary" onclick="next()">>></button>
+				</div>
+
+			<div class="alert alert-danger alert-dismissable" id="alert_red">
+				<button class="close" type="button">&times;</button>
+				<div id="alert_text"></div>
+			</div>
+
+     		<div class="row">
+        		<div class="col-md-3" id="leftcol"></div>
+     			<div class="col-md-5" id="rightcol"></div>
+     		</div>
+		</div>
+		<div id="dialog_generate" class="panel panel-primary" style="position:absolute;top:420px;left:20px;right:20px">
+  			<div class="panel-heading">Promocode Generation</div>
+			<div class="alert alert-danger alert-dismissable" id="field_validation_alert">
+				<button class="close" type="button">&times;</button>
+				<div id="field_validation_text"></div>
+			</div>
+  			<div class="panel-body">
+				<div class="input-group">
+  					<span class="input-group-addon">Application ID</span>
+  					<input type="text" class="form-control" id="appId" readonly>
+				</div>
+				<div class="input-group">
+  					<span class="input-group-addon">Description</span>
+  					<input type="text" class="form-control" id="description">
+				</div>
+				<div class="input-group">
+  					<span class="input-group-addon">Quantity</span>
+  					<input type="text" class="form-control" style="width=*" id="qty">
+				</div>								
+				<div class="input-group">
+  					<span class="input-group-addon">Application Data</span>
+  					<input type="text" class="form-control" id="appData">
+      			<span class="input-group-btn" id="genjsonspan">
+        				<button class="btn btn-primary" type="button" id="btgenjson">Generate JSON</button>
+      			</span>  					
+				</div>
+				<div class="panel panel-default" id="pngenjson">
+					<div class="panel-body" id="pnbodygenjson">
+						<div class="input-group">
+							<span class="input-group-addon">Key</span>
+  							<input type="text" class="form-control jsonkey">
+  							<span class="input-group-addon">Value</span>
+  							<input type="text" class="form-control jsonvalue">
+	      				<span class="input-group-btn">
+        						<button class="btn btn-danger removeAttr" type="button">Remove</button>
+      					</span>  					
+						</div>
+					</div>
+					<div class="btn-toolbar">
+						<div class="btn-group">
+  						<button class="btn btn-success" type="button" id="addAttr">Add</button>
+  						</div>
+						<div class="btn-group">
+  						<button class="btn btn-primary" type="button" id="genjson">Generate JSON</button>
+  						</div>
+  					</div>  					
+				</div>
+				
+  			</div>
+			<div class="btn-toolbar">
+				<div class="btn-group">
+					<button type="button" class="btn btn-danger" onclick="close_generate()">Cancel</button>
+				</div>
+				<div class="btn-group">
+					<button type="button" class="btn btn-success" onclick="generate()")>Generate</button>
+				</div>
+			</div>
+		</div>
+		<div id="dialog_reserve" class="panel panel-primary" style="position:absolute;top:500px;left:30%;right:30%">
+  			<div class="panel-heading">Promocode Reservation</div>
+  			<div class="panel-body">
+				<h4>Please confirm the reservation</h4>
+				<div class="input-group">
+  					<span class="input-group-addon">Pincode</span>
+  					<input type="text" class="form-control" id="pincode" readonly>
+				</div>
+  			</div>
+			<div class="btn-toolbar">
+				<div class="btn-group">
+					<button type="button" class="btn btn-danger" onclick="close_reserve()">Cancel</button>
+				</div>
+				<div class="btn-group">
+					<button type="button" class="btn btn-success" onclick="reserve()")>Reserve</button>
+				</div>
+			</div>
+		</div>
+   </body>
+</html>

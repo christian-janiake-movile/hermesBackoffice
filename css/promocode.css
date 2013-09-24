@@ -1,0 +1,65 @@
+.container {
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+h4 {
+  margin-top: 25px;
+}
+.row {
+  margin-bottom: 20px;
+}
+.row .row {
+  margin-top: 10px;
+  margin-bottom: 0;
+}
+[class*="col-"] {
+  padding-top: 15px;
+  padding-bottom: 15px;
+  border: 1px solid #ddd;
+  background-color: rgba(4,4,4,.05);
+  border: 1px solid rgba(86,61,124,.2);
+  max-height: 420px;
+}
+
+.col-md-3 {
+  overflow-x:hidden;
+  overflow-y: scroll;
+}
+
+.col-md-5 {
+  margin-left:10px
+}
+
+hr {
+  margin-top: 40px;
+  margin-bottom: 40px;
+}
+
+.selitem {
+	cursor: pointer;
+}
+
+.chosen {
+  color: #ffffff;
+  background-color: #428bca;
+}	
+
+.pinchosen {
+  color: #ffffff;
+  background-color: #428bca;
+}
+
+.dialog_generate {
+	position: absolute;
+	top: 50px;
+}
+
+.input-group {
+	padding-bottom: 20px;	
+}
+
+.btn-toolbar {
+	padding-bottom: 20px;	
+	padding-left: 20px;	
+}
