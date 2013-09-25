@@ -1,5 +1,4 @@
 var application = new Object();
-var pageSize = 13;
 var endOfList = false;
 var appIdSelected = "";
 var pincodeSelected = "";
@@ -48,7 +47,7 @@ function choosePincode(obj,pincode) {
 }
 						
 function loadCodes(lastkey) {
-	var url = "http://hermeshomolog:4768/api/1.0/promocode?application_id=" + appIdSelected + "&limit=" + pageSize;
+	var url = hermesAPI + "/promocode?application_id=" + appIdSelected + "&limit=" + pageSize;
 	if(lastkey) {
 		url = url + "&last_key=" + lastkey;
 	}
@@ -143,7 +142,7 @@ function generate() {
 	}
 	$("#dialog_generate").hide();
 	modal = false;
-	var url = "http://hermeshomolog:4768/api/1.0/promocode/generate?application_id=" + appIdSelected +
+	var url = hermesAPI + "/promocode/generate?application_id=" + appIdSelected +
 		"&description=" + encodeURIComponent(description) +
 		"&application_data=" + encodeURIComponent(appData) +
 		"&batch_size=" + quantity;
@@ -158,7 +157,7 @@ function generate() {
 function reserve() {
 	$("#dialog_reserve").hide();
 	modal = false;
-	var url = "http://hermeshomolog:4768/api/1.0/promocode/" + pincodeSelected + "/reserve";
+	var url = hermesAPI + "/promocode/" + pincodeSelected + "/reserve";
 	$.getJSON(url , function( data ) {
 		lastKeyStack = [];
 		endOfList = false;
@@ -221,7 +220,7 @@ $(document).ready(function() {
 		$("#btgenjson").prop('disabled', false);
 		$("#pngenjson").hide();
 	});
-	$.getJSON( "http://hermeshomolog:4768/api/1.0/applications", function( data ) {
+	$.getJSON( hermesAPI + "/applications", function( data ) {
 		$.each( data, function( i, item ) {
 			var applicationId = item.id;
 			var applicationName = item.name;
