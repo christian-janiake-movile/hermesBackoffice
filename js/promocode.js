@@ -56,7 +56,7 @@ function loadCodes(lastkey) {
 		var lastpin = "";
 		var count = 0;
 		$.each( data, function( i, item ) {
-			var pincode = item.pincode;
+			var pincode = item.promocode;
 			var desc = item.description;
 			content = content + '<p class="selitem" onclick="choosePincode(this,\'' + pincode + '\')">' + pincode + ' (' + desc + ')</p>';
 			lastpin = pincode;
